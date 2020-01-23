@@ -1,0 +1,12 @@
+variables:
+  GIT_SSL_NO_VERIFY: 1
+pages:
+  stage: deploy
+  tags:
+    - runner02
+  script:
+  - sudo rm -rf /var/www/public/hotsites/noticias-epge/n-6/
+  - sudo cp -r public/ /var/www/public/hotsites/noticias-epge/n-6/
+  - sudo chown nginx:nginx /var/www/public/hotsites/noticias-epge/ -R
+  only:
+  - 4tri-2019
